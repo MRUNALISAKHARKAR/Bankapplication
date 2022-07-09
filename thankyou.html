@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Thank You</title>
+</head>
+
+
+
+<body>
+
+    <h1>Thank You</h1>
+    <p>Dear <span id="firstname"></span></p>
+    <p>Thank you for your enquiry. A 4 digit verification number has been sent to you email : <span id="email"></span>,</p>
+    <p>Please enter it in the following box and submit for confirmation.</p>
+    <input name="otp" placeholder="Enter OTP" id="inputotp" />
+    <p id="success">Validation Success</p>
+    <button type="submit" id="submitBtn" onclick="validateOTP()">Submit</button><br/>
+    <p id="invalidOTP">Invalid OTP</p>
+
+</body>
+
+<script>
+    var otp = Math.floor(1000 + Math.random() * 9000); // create random 4 digit number
+    var firstName = localStorage.getItem('fullname'); // get firstname
+    var email = localStorage.getItem('email'); // get email
+    var otpEnteredCount = 0; // set wrong otp count
+    document.getElementById("firstname").innerHTML = firstName; // assign firstname to name field
+    document.getElementById("email").innerHTML = email; // assign email to email field
+    console.log(otp, "otp");
+
+    var successText = document.getElementById("success"); // get success 
+    var otpInputFeild = document.getElementById("inputotp"); // get enter otp
+    var invalidOTP = document.getElementById("invalidOTP"); // get invalid otp
+    var submitBtn = document.getElementById("submitBtn"); // get submit btn
+
+    successText.style.display = "none"; // initial hide success text
+    invalidOTP.style.display = "none"; // initial hide invalid otp text
+
+    function validateOTP() { // validate otp function call
+        var enteredOTP = document.getElementById("inputotp").value; // get value of entered otp
+        console.log(enteredOTP, "enteredOTP");
+        if (enteredOTP == otp) { // check entered and generated otp is same or not
+            otpEnteredCount = 0; // set wrong otp count to 0
+            otpInputFeild.style.display = "none"; // hide 
+            successText.style.display = "Block";
+            submitBtn.style.display = "none";
+            invalidOTP.style.display = "none";
+
+            //redirect to home page
+        } else {
+            if (otpEnteredCount > 2) {
+                console.log("3 times wrong otp");
+                //redirect to 404 not found page
+            }
+            invalidOTP.style.display = "block";
+            otp = Math.floor(1000 + Math.random() * 9000);
+            console.log(otp, "otp");
+            otpEnteredCount++;
+            inputotp.value = "";
+        }
+
+    }
+</script>
+
+</html>
