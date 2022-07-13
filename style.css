@@ -1,0 +1,121 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'poppins', sans-serif;
+}
+
+body {
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    background: linear-gradient(135deg, #71b7e6, #9b59b8);
+}
+
+.container {
+    min-width: 500px;
+    max-width: 50%;
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 5px;
+    text-transform: uppercase;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+}
+
+.container .title {
+    font-size: 20px;
+    font-weight: 600;
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.container .title::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 3px;
+    width: 200px;
+    border-radius: 5px;
+    background: linear-gradient(135deg, #71b7e6, #9b0ed3);
+}
+
+.container form .user-details {
+    display: flex;
+    font-size: 15px;
+    font-weight: 400;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 20px 0 12px 0;
+}
+
+form .user-details .input-box {
+    margin-bottom: 15px;
+    width: 100%;
+}
+
+.user-details .input-box span.details {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+.user-details .input-box .captcha {
+    margin: 15px 0px;
+}
+
+.user-details .captcha .preview {
+    color: #555;
+    width: 100%;
+    text-align: centre;
+    height: 40px;
+    line-height: 40px;
+    letter-spacing: 8px;
+    border: 1px solid #888;
+    font-family: monospace;
+}
+
+.user-details .input-box input {
+    height: 45px;
+    width: 100%;
+    outline: none;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding-left: 15px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+.user-details .input-box input:focus,
+.user-details .input-box input:valid {
+    border-color: #9b59b8;
+}
+
+form .button {
+    height: 45px;
+    width: 100%;
+    margin: 35px 0;
+    text-align: center;
+}
+
+form .button input {
+    height: 100%;
+    width: 100%;
+    outline: none;
+    color: #fff;
+    border: none;
+    font-size: 19px;
+    text-transform: uppercase;
+    font-weight: 500;
+    border-radius: 5px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3 ease;
+    background: linear-gradient(135deg, #71b7e6, #9b59b8);
+}
+
+form .button input:hover {
+    background: linear-gradient(-135deg, #71b7e6, #9b59b8);
+}
